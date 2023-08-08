@@ -65,6 +65,7 @@ public class ModuleManager {
         addModule(new ChestESP());
         addModule(new ClientSpoof());
         addModule(new Nametags());
+        addModule(new Derp());
         addModule(new PlayerESP());
         addModule(new HUD());
         addModule(new NoHurtCam());
