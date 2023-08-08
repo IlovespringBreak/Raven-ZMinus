@@ -37,7 +37,7 @@ public class UpdateCheck extends Module {
             Version current = Raven.versionManager.getClientVersion();
             if (latest.isNewerThan(current)) {
                 Utils.Player.sendMessageToSelf(
-                        "The current version or Raven B+++ is outdated. Visit https://github.com/StephenIsTaken/Raven-BPlusPlusPlus/tree/main/build/libs to download the latest version.");
+                        "The current version or Raven Z- is outdated. Visit https://github.com/StephenIsTaken/Raven-BPlusPlusPlus/tree/main/build/libs to download the latest version.");
                 Utils.Player.sendMessageToSelf("https://github.com/StephenIsTaken/Raven-BPlusPlusPlus/tree/main/build/libs");
             }
 
@@ -61,7 +61,7 @@ public class UpdateCheck extends Module {
                 } catch (MalformedURLException bruh) {
                     bruh.printStackTrace();
                     Utils.Player
-                            .sendMessageToSelf("&cFailed to open page! Please report this bug in Raven b+++'s discord");
+                            .sendMessageToSelf("&cFailed to open page! Please report this bug in Raven Z-'s discord");
                 }
             }
 

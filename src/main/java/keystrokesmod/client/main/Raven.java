@@ -37,7 +37,7 @@ public class Raven {
     public static final String downloadLocation = "https://github.com/StephenIsTaken/Raven-BPlusPlusPlus/releases/latest";
     public static final String discord = "https://discord.gg/ZJJRC9mBWk";
     public static String[] updateText = {
-            "Your version of Raven B+++ (" + versionManager.getClientVersion().toString() + ") is outdated!",
+            "Your version of Raven Z- (" + versionManager.getClientVersion().toString() + ") is outdated!",
             "Enter the command update into client CommandLine to open the download page",
             "or just enable the update module to get a message in chat.", "",
             "Newest version: " + versionManager.getLatestVersion().toString() };
