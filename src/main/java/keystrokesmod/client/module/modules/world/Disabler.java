@@ -1,6 +1,7 @@
 package keystrokesmod.client.module.modules.world;
 
 import com.google.common.eventbus.Subscribe;
+import keystrokesmod.client.event.impl.ForgeEvent;
 import keystrokesmod.client.event.impl.PacketEvent;
 import keystrokesmod.client.module.Module;
 import keystrokesmod.client.module.setting.impl.ComboSetting;
@@ -16,7 +17,7 @@ public class Disabler extends Module {
     private int packetPlayers = 0;
 
     public enum Mode {
-        Vulcan, NCPTp
+        Vulcan, NCPTp, OldCubecraft
     }
 
     public Disabler() {
@@ -55,6 +56,14 @@ public class Disabler extends Module {
                         e.setCancelled(true);
                     }
                 }
+        }
+    }
+
+    @Subscribe
+    public void onLivingUpdate(ForgeEvent event) {
+        switch ((Mode) mode.getMode()) {
+            case OldCubecraft:
+                mc.thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(mc.thePlayer.inventory.getCurrentItem()));
         }
     }
 }
