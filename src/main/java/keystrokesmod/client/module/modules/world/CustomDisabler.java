@@ -1,13 +1,14 @@
 package keystrokesmod.client.module.modules.world;
 
 import com.google.common.eventbus.Subscribe;
+import keystrokesmod.client.event.impl.ForgeEvent;
 import keystrokesmod.client.event.impl.PacketEvent;
 import keystrokesmod.client.module.Module;
 import keystrokesmod.client.module.setting.impl.TickSetting;
 import net.minecraft.network.play.client.*;
 
 public class CustomDisabler extends Module {
-    public static TickSetting c00,c02,c03,c04,c05,c06,c07,c08,c09, c0a,c0b,c0c,c0d,c0e,c0f,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19;
+    public static TickSetting c00,c02,c03,c04,c05,c06,c07,c08,c09, c0a,c0b,c0c,c0d,c0e,c0f,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c08eachtick;
     public CustomDisabler() {
         super("CustomDisabler", ModuleCategory.world);
         // custom packets disabler
@@ -36,6 +37,7 @@ public class CustomDisabler extends Module {
         this.registerSetting(c17 = new TickSetting("C17PacketCustomPayload", false));
         this.registerSetting(c18 = new TickSetting("C18PacketSpectate", false));
         this.registerSetting(c19 = new TickSetting("C19PacketPackStatus", false));
+        this.registerSetting(c08eachtick = new TickSetting("Send C08 Each Tick", false));
         // pingspoof soon
     }
     @Subscribe
@@ -167,5 +169,11 @@ public class CustomDisabler extends Module {
                 e.setCancelled(true);
         }
         // packets end
+    }
+
+    @Subscribe
+    public void onLivingUpdate(ForgeEvent event) {
+        if (c08eachtick.isToggled())
+            mc.thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(mc.thePlayer.inventory.getCurrentItem()));
     }
 }
