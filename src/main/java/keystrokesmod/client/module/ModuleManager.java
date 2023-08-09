@@ -51,6 +51,7 @@ public class ModuleManager {
         addModule(new KeepSprint());
         addModule(new NoSlow());
         addModule(new Sprint());
+        addModule(new AntiKnockback());
         addModule(new LegitSpeed());
         addModule(new Timer());
         addModule(new VClip());
